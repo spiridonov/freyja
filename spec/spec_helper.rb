@@ -1,6 +1,8 @@
 require 'freyja'
 require 'active_support/all'
 
+Dir['./spec/support/**/*.rb'].each {|f| require f}
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
