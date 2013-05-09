@@ -1,0 +1,3 @@
+class Freyja::Base
+
+end

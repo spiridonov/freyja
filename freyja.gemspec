@@ -1,0 +1,22 @@
+# encoding: utf-8
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'freyja/version'
+
+Gem::Specification.new do |gem|
+  gem.name          = 'freyja'
+  gem.version       = Freyja::VERSION
+  gem.date          = '2013-05-09'
+  gem.summary       = "Freyja, Njord`s daughter"
+  gem.description   = "Lightweight hash transformer"
+  gem.authors       = ["Stanislav Spiridonov"]
+  gem.email         = 'stanislav@spiridonov.pro'
+
+  gem.add_dependency 'activesupport', '~> 3.1'
+
+  gem.files         = `git ls-files lib/`.split($/)
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ['lib']
+  gem.homepage      = 'https://github.com/spiridonov/freyja'
+end
