@@ -46,10 +46,9 @@ describe Freyja::Base do
       @translator = HasOneTest1.new(@source)
     end
 
-    it 'should assign nil for association' do
+    it 'should not assign nil association' do
       result = @translator.as_json
-      result.keys.should match_array [:a, :b, :c]
-      result[:c].should be_nil
+      result.keys.should match_array [:a, :b]
     end
   end
 
