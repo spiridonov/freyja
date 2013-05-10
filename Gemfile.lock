@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    freyja (0.0.1)
+    freyja (0.0.2)
       activesupport (~> 3.1)
 
 GEM

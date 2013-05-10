@@ -68,7 +68,7 @@ class Freyja::Base
         else
           value = source[attr]
         end
-        if association[:class]
+        if association[:class] && value.present?
           translator = association[:class].new(value)
           result[attr] = translator.as_json
         else
@@ -87,7 +87,7 @@ class Freyja::Base
         else
           value = source[attr]
         end
-        if association[:class]
+        if association[:class] && value.present?
           result[attr] = value.map do |v|
             translator = association[:class].new(v)
             translator.as_json

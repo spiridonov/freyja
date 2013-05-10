@@ -11,27 +11,46 @@ end
 
 describe Freyja::Base do
 
-  before :all do
-    @source = {
-      a: 1,
-      b: :value,
-      c: {
-        d: 1,
-        e: [2, 4],
-      },
-    }
-    @translator = HasOneTest1.new(@source)
+  describe 'without nils' do
+    before :all do
+      @source = {
+        a: 1,
+        b: :value,
+        c: {
+          d: 1,
+          e: [2, 4],
+        },
+      }
+      @translator = HasOneTest1.new(@source)
+    end
+
+    it 'should read only attributes from the list and associations' do
+      result = @translator.as_json
+      result.keys.should match_array [:a, :b, :c]
+    end
+
+    it 'should apply translators for associations' do
+      result = @translator.as_json
+      result.keys.should match_array [:a, :b, :c]
+      result[:c].keys.should match_array [:e]
+    end
   end
 
-  it 'should read only attributes from the list and associations' do
-    result = @translator.as_json
-    result.keys.should match_array [:a, :b, :c]
-  end
+  describe 'with nils' do
+    before :all do
+      @source = {
+        a: 1,
+        b: nil,
+        c: nil,
+      }
+      @translator = HasOneTest1.new(@source)
+    end
 
-  it 'should apply translators for associations' do
-    result = @translator.as_json
-    result.keys.should match_array [:a, :b, :c]
-    result[:c].keys.should match_array [:e]
+    it 'should assign nil for association' do
+      result = @translator.as_json
+      result.keys.should match_array [:a, :b, :c]
+      result[:c].should be_nil
+    end
   end
 
 end

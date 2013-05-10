@@ -2,4 +2,4 @@
 
 _Freyja - a goddess in Norse mythology, daughter of Njord._
 
-Lightweight Ruby hash transformer originally created for deserializing ActiveRecord model.
+Lightweight Ruby hash translator originally created for deserializing ActiveRecord model.
