@@ -7,13 +7,13 @@ require 'freyja/version'
 Gem::Specification.new do |gem|
   gem.name          = 'freyja'
   gem.version       = Freyja::VERSION
-  gem.date          = '2013-05-09'
+  gem.date          = '2014-04-13'
   gem.summary       = "Freyja, Njord`s daughter"
   gem.description   = "Lightweight hash transformer"
   gem.authors       = ["Stanislav Spiridonov"]
   gem.email         = 'stanislav@spiridonov.pro'
 
-  gem.add_dependency 'activesupport', '~> 3.1'
+  gem.add_dependency 'activesupport'
 
   gem.files         = `git ls-files lib/`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
