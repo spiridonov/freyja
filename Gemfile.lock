@@ -1,18 +1,22 @@
 PATH
   remote: .
   specs:
-    freyja (0.0.3)
-      activesupport (~> 3.1)
+    freyja (0.0.4)
+      activesupport
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
-    activesupport (3.2.12)
-      i18n (~> 0.6)
-      multi_json (~> 1.0)
+    activesupport (4.1.0)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
     diff-lcs (1.2.1)
-    i18n (0.6.4)
-    multi_json (1.7.2)
+    i18n (0.6.9)
+    json (1.8.1)
+    minitest (5.3.2)
     rake (10.0.4)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -22,6 +26,9 @@ GEM
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.13.0)
+    thread_safe (0.3.3)
+    tzinfo (1.1.0)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
