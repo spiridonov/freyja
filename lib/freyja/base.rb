@@ -10,6 +10,22 @@ class Freyja::Base
     @attributes = args
   end
 
+  def self.defaults
+    @defaults
+  end
+
+  def self.set_default(attribute, value)
+    make_sure_defaults_is_set
+
+    @defaults[attribute] = value
+  end
+
+  def self.default(attribute)
+    make_sure_defaults_is_set
+
+    defaults[attribute]
+  end
+
   def self.has_one(attribute, translator = nil)
     @has_one ||= []
     @has_one << {
@@ -53,7 +69,7 @@ class Freyja::Base
         if self.respond_to?(attr)
           result[attr] = send(attr)
         else
-          result[attr] = source[attr]
+          result[attr] = source[attr] || self.class.default(attr)
         end
       end
     end
@@ -66,7 +82,7 @@ class Freyja::Base
         if self.respond_to?(attr)
           value = send(attr)
         else
-          value = source[attr]
+          value = source[attr] || self.class.default(attr)
         end
         if value.present?
           if association[:class]
@@ -89,7 +105,7 @@ class Freyja::Base
         if self.respond_to?(attr)
           value = send(attr)
         else
-          value = source[attr]
+          value = source[attr] || self.class.default(attr)
         end
         if value.present?
           if association[:class]
@@ -115,4 +131,9 @@ class Freyja::Base
     end
   end
 
+  private
+
+  def self.make_sure_defaults_is_set
+    @defaults ||= HashWithIndifferentAccess.new
+  end
 end
