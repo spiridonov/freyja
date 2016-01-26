@@ -7,7 +7,7 @@ require 'freyja/version'
 Gem::Specification.new do |gem|
   gem.name          = 'freyja'
   gem.version       = Freyja::VERSION
-  gem.date          = '2014-04-13'
+  gem.date          = '2016-01-26'
   gem.summary       = "Freyja, Njord`s daughter"
   gem.description   = "Lightweight hash transformer"
   gem.authors       = ["Stanislav Spiridonov"]
